@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import { MongoMemoryServer } from "mongodb-memory-server"
+import ENV from '../config.js'
 
 const connect = async () => {
 
@@ -7,7 +8,10 @@ const connect = async () => {
   const getUri = mongod.getUri()
 
   mongoose.set('strictQuery',true)
-  const db = await mongoose.connect(getUri)
+  // for memory server
+  // const db = await mongoose.connect(getUri)
+  const db = await mongoose.connect(ENV.ATLAS_URL)
+
   console.log("Database Connectes")
 
   return db

@@ -19,7 +19,7 @@ import { AuthorizeUser,ProtectRoute } from './middleware/auth';
 const router = createBrowserRouter([
   {
       path : '/',
-      element : <Username text='safeplanet'/>
+      element : <Username/>
   },
   {
       path : '/register',
